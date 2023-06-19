@@ -1,0 +1,41 @@
+{
+  "name": "CTU Feature",
+  "manifest_version": 3,
+  "version": "1.0",
+  "description": "Skip captcha, create schedule, ...",
+  "permissions": ["tabs", "cookies", "bookmarks", "unlimitedStorage"],
+
+  "action": {
+    "default_title": "CTU Feature",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "32": "icons/32x32.png"
+    }
+  },
+  "options_page": "options.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://htql.ctu.edu.vn/*",
+        "https://qldt.ctu.edu.vn/*",
+        "https://dkmh.ctu.edu.vn/htql/dkmh/student/index.php?action=lich_hoc"
+      ],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "host_permissions": [
+    "https://htql.ctu.edu.vn/*",
+    "https://dkmh3.ctu.edu.vn/*",
+    "https://qldt.ctu.edu.vn/*"
+  ],
+  "icons": {
+    "32": "icons/32x32.png",
+    "192": "icons/192x192.png",
+    "256": "icons/256x256.png",
+    "384": "icons/384x384.png",
+    "512": "icons/512x512.png"
+  }
+}
